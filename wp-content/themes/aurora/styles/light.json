@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "title": "Daylight",
+  "settings": {
+    "color": {
+      "palette": [
+        { "slug": "base", "name": "Base", "color": "#fbfaf7" },
+        { "slug": "base-2", "name": "Base 2", "color": "#f3f1ec" },
+        { "slug": "surface", "name": "Surface", "color": "#ffffff" },
+        { "slug": "border", "name": "Border", "color": "#e4e1d9" },
+        { "slug": "contrast", "name": "Contrast", "color": "#14131c" },
+        { "slug": "muted", "name": "Muted", "color": "#5f5d6e" },
+        { "slug": "violet", "name": "Violet", "color": "#6d3fe0" },
+        { "slug": "fuchsia", "name": "Fuchsia", "color": "#b62fcf" },
+        { "slug": "cyan", "name": "Cyan", "color": "#0e8fa8" },
+        { "slug": "gold", "name": "Gold", "color": "#a8772c" }
+      ]
+    }
+  },
+  "styles": {
+    "elements": {
+      "button": {
+        ":hover": { "color": { "background": "var(--wp--preset--color--violet)", "text": "#ffffff" } }
+      },
+      "link": { ":hover": { "color": { "text": "var(--wp--preset--color--violet)" } } }
+    }
+  }
+}
