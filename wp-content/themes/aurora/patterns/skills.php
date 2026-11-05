@@ -15,11 +15,11 @@ $aurora_skills = array( 'WordPress', 'Block themes / FSE', 'Gutenberg blocks', '
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">All types of WordPress, <em>mastered.</em></h2>
+<h2 class="wp-block-heading">Every kind of website, <em>mastered.</em></h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ak-lead"} -->
-<p class="ak-lead">Corporate sites, stores, memberships, LMS, directories, multilingual and headless. If it runs on WordPress, I've built it.</p>
+<p class="ak-lead">Corporate sites, stores, memberships, LMS, directories, multilingual and headless. Whatever the brief, I've built it before.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 

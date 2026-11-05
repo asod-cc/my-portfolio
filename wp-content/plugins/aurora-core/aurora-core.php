@@ -122,7 +122,8 @@ function aurora_core_handle_form() {
 		return;
 	}
 
-	$back = wp_get_referer() ? wp_get_referer() : home_url( '/' );
+	$back = isset( $_POST['aurora_return'] ) ? esc_url_raw( wp_unslash( $_POST['aurora_return'] ) ) : '';
+	$back = wp_validate_redirect( $back, home_url( '/' ) );
 	$back = remove_query_arg( 'aurora_sent', $back );
 
 	if ( ! isset( $_POST['_aurora_nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['_aurora_nonce'] ), 'aurora_contact' ) ) {
@@ -213,6 +214,7 @@ function aurora_core_form_shortcode() {
 	<form class="ak-form" method="post" action="">
 		<?php wp_nonce_field( 'aurora_contact', '_aurora_nonce' ); ?>
 		<input type="hidden" name="aurora_contact" value="1">
+		<input type="hidden" name="aurora_return" value="<?php echo esc_url( home_url( add_query_arg( array() ) ) ); ?>">
 		<input type="hidden" name="aurora_ts" value="<?php echo esc_attr( time() ); ?>">
 		<div class="ak-hp" aria-hidden="true"><label>Website <input type="text" name="aurora_website" tabindex="-1" autocomplete="off"></label></div>
 		<div class="ak-row">
@@ -268,3 +270,53 @@ add_action(
 	10,
 	2
 );
+
+/* -------------------------------------------------------------------------
+ * Demo content importer: Tools → Aurora Demo Content
+ * ---------------------------------------------------------------------- */
+
+add_action(
+	'admin_menu',
+	function () {
+		add_management_page(
+			__( 'Aurora Demo Content', 'aurora-core' ),
+			__( 'Aurora Demo Content', 'aurora-core' ),
+			'manage_options',
+			'aurora-demo',
+			'aurora_core_demo_page'
+		);
+	}
+);
+
+/**
+ * Render the importer page and run the import on submit.
+ */
+function aurora_core_demo_page() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	$result = '';
+	if ( isset( $_POST['aurora_import'] ) && check_admin_referer( 'aurora_demo_import' ) ) {
+		@set_time_limit( 300 ); // phpcs:ignore WordPress.PHP.NoSilencedErrors
+		$result = include __DIR__ . '/demo/seed.php';
+	}
+	$ready = 'aurora' === get_stylesheet();
+	?>
+	<div class="wrap">
+		<h1><?php esc_html_e( 'Aurora Demo Content', 'aurora-core' ); ?></h1>
+		<?php if ( $result ) : ?>
+			<div class="notice notice-success"><p><?php echo esc_html( $result ); ?></p></div>
+		<?php endif; ?>
+		<p style="max-width:640px"><?php esc_html_e( 'Creates the complete portfolio site: Home, About, Services, Contact and Journal pages, six portfolio projects with screenshots, three blog posts, the main menu and recommended settings (static front page, pretty permalinks, Elementor on projects).', 'aurora-core' ); ?></p>
+		<p style="max-width:640px"><?php esc_html_e( 'Safe to run again: existing demo items are updated rather than duplicated. Pages you have edited will be reset to the demo layout.', 'aurora-core' ); ?></p>
+		<?php if ( ! $ready ) : ?>
+			<div class="notice notice-warning inline"><p><?php esc_html_e( 'Activate the Aurora theme first (Appearance → Themes).', 'aurora-core' ); ?></p></div>
+		<?php else : ?>
+			<form method="post">
+				<?php wp_nonce_field( 'aurora_demo_import' ); ?>
+				<p><button class="button button-primary button-hero" name="aurora_import" value="1"><?php esc_html_e( 'Import demo content', 'aurora-core' ); ?></button></p>
+			</form>
+		<?php endif; ?>
+	</div>
+	<?php
+}

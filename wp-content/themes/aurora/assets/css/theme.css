@@ -509,3 +509,13 @@ h1 em, h2 em, h3 em { font-style: italic; padding-right: .06em; }
 .ak-ai-bar { height: 6px; border-radius: 999px; background: var(--ak-border); margin-top: .55rem; overflow: hidden; }
 .ak-ai-bar i { display: block; height: 100%; border-radius: inherit; background: var(--ak-aurora); transform-origin: left; animation: ak-grow 1.6s var(--ak-ease) both; }
 @keyframes ak-grow { from { transform: scaleX(0); } }
+
+/* Small screens: simplify the AI console */
+@media (max-width: 600px) {
+	.ak-prompt { font-size: .78rem; }
+	.ak-prompt-body { padding: 1.1rem; min-height: 0; }
+	.ak-prompt-steps li { display: block; }
+	.ak-prompt-steps li span { display: none; }
+	.ak-prompt-steps li::before { margin-right: .5rem; }
+	.ak-prompt-bar span { display: none; }
+}

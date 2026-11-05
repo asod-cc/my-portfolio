@@ -6,8 +6,8 @@
  * Description: Career milestones.
  */
 $aurora_tl = array(
-	array( '2016', 'First theme, first clients', 'Started freelancing with custom WordPress themes for local businesses and quickly grew through referrals.' ),
-	array( '2018', 'Agency partner & lead developer', 'Led WordPress development for digital agencies, shipping dozens of corporate and campaign sites a year.' ),
+	array( '2016', 'First theme, first clients', 'Started freelancing, building custom websites for local businesses and quickly grew through referrals.' ),
+	array( '2018', 'Agency partner & lead developer', 'Led web development for digital agencies, shipping dozens of corporate and campaign sites a year.' ),
 	array( '2020', 'WooCommerce specialist', 'Focused on e-commerce: stores, subscriptions and bookings for brands moving their sales online.' ),
 	array( '2022', 'Page-builder systems', 'Built reusable Elementor and Bricks design systems that let marketing teams launch pages in minutes.' ),
 	array( '2024', 'AI-assisted workflow', 'Integrated AI into discovery, design and QA, and started shipping AI assistants and smart search for clients.' ),

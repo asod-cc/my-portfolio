@@ -17,7 +17,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center","className":"ak-lead ak-reveal"} -->
-<p class="has-text-align-center ak-lead ak-reveal">Strategy, design, development and care for WordPress: custom themes, page builders, WooCommerce and AI features.</p>
+<p class="has-text-align-center ak-lead ak-reveal">Web design, development and care: custom websites, page-builder sites, online stores and AI features.</p>
 <!-- /wp:paragraph --></section>
 <!-- /wp:group -->
 

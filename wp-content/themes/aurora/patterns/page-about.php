@@ -17,7 +17,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center","className":"ak-lead ak-reveal"} -->
-<p class="has-text-align-center ak-lead ak-reveal">I'm Asad Khan, a WordPress specialist with 10 years of experience building every type of website, for clients who care about quality.</p>
+<p class="has-text-align-center ak-lead ak-reveal">I'm Asad Khan, a web developer and designer with 10 years of experience building every type of website, for clients who care about quality.</p>
 <!-- /wp:paragraph --></section>
 <!-- /wp:group -->
 

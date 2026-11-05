@@ -2,9 +2,9 @@
 /**
  * Seed the Aurora demo content: pages, projects, posts, menu, settings.
  *
- * Run AFTER the theme and plugin are active (patterns must be registered):
- *   wp theme activate aurora && wp plugin activate aurora-core
- *   wp eval-file setup/seed.php
+ * Run AFTER the theme and plugin are active (patterns must be registered), either:
+ *   - Dashboard: Tools → Aurora Demo Content → Import, or
+ *   - WP-CLI:    wp eval-file wp-content/plugins/aurora-core/demo/seed.php
  *
  * Safe to run more than once: existing items (matched by slug) are updated, not duplicated.
  *
@@ -12,21 +12,24 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit( "Run with: wp eval-file setup/seed.php\n" );
+	exit( "Run with: wp eval-file wp-content/plugins/aurora-core/demo/seed.php\n" );
 }
 
 require_once ABSPATH . 'wp-admin/includes/media.php';
 require_once ABSPATH . 'wp-admin/includes/file.php';
 require_once ABSPATH . 'wp-admin/includes/image.php';
 
-if ( 'aurora' !== get_stylesheet() ) {
-	exit( "Activate the Aurora theme first: wp theme activate aurora\n" );
-}
-if ( ! post_type_exists( 'project' ) ) {
-	exit( "Activate the Aurora Core plugin first: wp plugin activate aurora-core\n" );
+if ( 'aurora' !== get_stylesheet() || ! post_type_exists( 'project' ) ) {
+	$aurora_seed_error = 'Activate the Aurora theme and the Aurora Core plugin first.';
+	if ( class_exists( 'WP_CLI' ) ) {
+		WP_CLI::error( $aurora_seed_error );
+	}
+	return $aurora_seed_error;
 }
 
-$media_dir = __DIR__ . '/media/';
+if ( ! defined( 'AURORA_SEED_MEDIA' ) ) {
+	define( 'AURORA_SEED_MEDIA', __DIR__ . '/media/' );
+}
 
 /* ---------------------------------------------------------------- helpers */
 
@@ -69,7 +72,6 @@ function aurora_seed_upsert( array $args ) {
  * Import an image once and return the attachment ID.
  */
 function aurora_seed_image( $file, $title, $parent = 0 ) {
-	global $media_dir;
 	$existing = get_posts(
 		array(
 			'post_type'      => 'attachment',
@@ -82,7 +84,7 @@ function aurora_seed_image( $file, $title, $parent = 0 ) {
 		return $existing[0]->ID;
 	}
 	$tmp = wp_tempnam( $file );
-	copy( $media_dir . $file, $tmp );
+	copy( AURORA_SEED_MEDIA . $file, $tmp );
 	$id = media_handle_sideload( array( 'name' => $file, 'tmp_name' => $tmp ), $parent, $title );
 	if ( is_wp_error( $id ) ) {
 		error_log( 'Aurora seed: ' . $id->get_error_message() ); // phpcs:ignore
@@ -125,7 +127,7 @@ function aurora_b_quote( $text, $cite ) {
 /* --------------------------------------------------------------- settings */
 
 update_option( 'blogname', 'Asad Khan' );
-update_option( 'blogdescription', 'WordPress Developer & Designer' );
+update_option( 'blogdescription', 'Web Developer & Designer' );
 update_option( 'timezone_string', 'Asia/Karachi' );
 update_option( 'date_format', 'M j, Y' );
 update_option( 'posts_per_page', 9 );
@@ -279,7 +281,7 @@ $posts = array(
 		'date'     => '-6 days',
 		'excerpt'  => 'After hundreds of builds with both, here is how I decide between Elementor, Bricks and native blocks for each client.',
 		'body'     => array(
-			array( 'p', 'Every week a client asks me which page builder they should use. After ten years and hundreds of WordPress builds, my honest answer is: it depends on who will edit the site, and how much performance matters.' ),
+			array( 'p', 'Every week a client asks me which page builder they should use. After ten years and hundreds of website builds, my honest answer is: it depends on who will edit the site, and how much performance matters.' ),
 			array( 'h', 'Choose Elementor when your team edits daily' ),
 			array( 'p', 'Elementor is still the most familiar visual editor. Marketing teams pick it up in an afternoon, the ecosystem of add-ons is huge, and Elementor Pro\'s theme builder covers headers, footers, archives and popups. The trade-off is heavier front-end output, which you have to manage with good habits.' ),
 			array( 'h', 'Choose Bricks when every millisecond counts' ),
@@ -293,11 +295,11 @@ $posts = array(
 	),
 	array(
 		'slug'    => 'how-i-use-ai-to-ship-wordpress-sites-faster',
-		'title'   => 'How I use AI to ship WordPress sites faster (without cutting corners)',
+		'title'   => 'How I use AI to ship websites faster (without cutting corners)',
 		'cat'     => 'AI',
 		'image'   => 'blog-ai-workflow.jpg',
 		'date'    => '-14 days',
-		'excerpt' => 'Where AI genuinely saves time in a WordPress project, and where a human still has to make the call.',
+		'excerpt' => 'Where AI genuinely saves time in a web project, and where a human still has to make the call.',
 		'body'    => array(
 			array( 'p', 'AI hasn\'t replaced the craft of building websites, but it has changed where the time goes. Here is what my workflow looks like in 2026.' ),
 			array( 'h', '1. Discovery and structure' ),
@@ -313,13 +315,13 @@ $posts = array(
 	),
 	array(
 		'slug'    => 'wordpress-essentials-every-business-site-needs',
-		'title'   => '10 WordPress essentials every business website needs',
+		'title'   => '10 essentials every business website needs',
 		'cat'     => 'Guides',
 		'image'   => 'blog-essentials.jpg',
 		'date'    => '-25 days',
 		'excerpt' => 'The plugins, settings and habits I set up on every client site before it goes live.',
 		'body'    => array(
-			array( 'p', 'Whatever the design, every professional WordPress site needs the same solid foundations. This is the checklist I run before every launch.' ),
+			array( 'p', 'Whatever the design, every professional website needs the same solid foundations. This is the checklist I run before every launch.' ),
 			array( 'l', array( '<strong>Backups:</strong> daily, off-site, and tested (UpdraftPlus or host-level)', '<strong>Security:</strong> firewall, login protection and 2FA (Wordfence)', '<strong>SEO:</strong> titles, sitemaps and schema (Yoast SEO or Rank Math)', '<strong>Caching:</strong> page and browser caching (WP Super Cache, LiteSpeed or your host)', '<strong>Image optimisation:</strong> WebP/AVIF and lazy loading (Smush or similar)', '<strong>Reliable email:</strong> SMTP so forms actually arrive (WP Mail SMTP)', '<strong>Redirects:</strong> keep old URLs working after a redesign (Redirection)', '<strong>Analytics:</strong> privacy-friendly tracking and Search Console (Site Kit)', '<strong>Cookie consent:</strong> GDPR-compliant banners where required (Complianz)', '<strong>Uptime monitoring</strong> and a clear update routine' ) ),
 			array( 'h', 'Fewer plugins, better plugins' ),
 			array( 'p', 'Every plugin is code you need to trust and maintain. I prefer a small set of well-supported tools over dozens of single-purpose ones. The Docker setup for this site installs exactly the list above.' ),
@@ -367,7 +369,6 @@ foreach ( $posts as $post ) {
 		set_post_thumbnail( $id, $img );
 	}
 }
-wp_delete_term( (int) get_option( 'default_category' ), 'category' );
 
 /* ------------------------------------------------------------- navigation */
 
@@ -400,6 +401,5 @@ flush_rewrite_rules();
 $msg = sprintf( "Seeded: %d pages, %d projects, %d posts. Visit %s\n", count( $page_ids ), count( $projects ), count( $posts ), home_url( '/' ) );
 if ( class_exists( 'WP_CLI' ) ) {
 	WP_CLI::success( trim( $msg ) );
-} else {
-	echo $msg; // phpcs:ignore
 }
+return trim( $msg );

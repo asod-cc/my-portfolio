@@ -10,7 +10,7 @@
 <section class="wp-block-group alignfull ak-section-tight"><!-- wp:columns {"verticalAlignment":"center","align":"wide"} -->
 <div class="wp-block-columns alignwide are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center","width":"45%","className":"ak-reveal"} -->
 <div class="wp-block-column is-vertically-aligned-center ak-reveal" style="flex-basis:45%"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-framed"} -->
-<figure class="wp-block-image size-full is-style-framed"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/about-visual.jpg' ) ); ?>" alt="Asad Khan's workspace: WordPress editor with code and design system"/></figure>
+<figure class="wp-block-image size-full is-style-framed"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/about-visual.jpg' ) ); ?>" alt="Asad Khan's workspace: code editor and design system"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
@@ -24,7 +24,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ak-muted"} -->
-<p class="ak-muted">I built my first WordPress theme in 2016 and never looked back. Since then I've designed and developed more than 350 websites: local businesses and global brands, five-page portfolios and stores with ten thousand products.</p>
+<p class="ak-muted">I built my first client website in 2016 and never looked back. Since then I've designed and developed more than 350 websites: local businesses and global brands, five-page portfolios and stores with ten thousand products.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ak-muted"} -->

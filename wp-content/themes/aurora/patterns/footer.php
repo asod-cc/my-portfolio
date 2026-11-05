@@ -15,7 +15,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ak-muted"} -->
-<p class="ak-muted">WordPress developer &amp; designer with 10 years of experience. Custom themes, Elementor &amp; Bricks builds, WooCommerce and AI-powered features, crafted with care.</p>
+<p class="ak-muted">Web developer &amp; designer with 10 years of experience. Custom websites, page-builder sites, online stores and AI-powered features, crafted with care.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ak-eyebrow"} -->
@@ -58,7 +58,7 @@
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li><a href="<?php echo esc_url( home_url( '/services/' ) ); ?>">Custom themes</a></li>
+<li><a href="<?php echo esc_url( home_url( '/services/' ) ); ?>">Web development</a></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -114,7 +114,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>Crafted with WordPress, good typography &amp; a little AI.</p>
+<p>Crafted with care, good typography &amp; a little AI.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->

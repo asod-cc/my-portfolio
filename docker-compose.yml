@@ -1,0 +1,62 @@
+# Complete local WordPress for the Asad Khan portfolio.
+#   docker compose up -d        → http://localhost:8080  (admin: /wp-admin)
+#   docker compose down -v      → remove everything
+services:
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: ${DB_PASSWORD:-wordpress}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-rootpass}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      retries: 20
+
+  wordpress:
+    image: wordpress:php8.3-apache
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${WP_PORT:-8080}:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-wordpress}
+    volumes:
+      - wp_data:/var/www/html
+      - ./wp-content/themes/aurora:/var/www/html/wp-content/themes/aurora
+      - ./wp-content/plugins/aurora-core:/var/www/html/wp-content/plugins/aurora-core
+
+  # One-off installer: installs WordPress, essential plugins and the demo content.
+  setup:
+    image: wordpress:cli-php8.3
+    user: "33:33"
+    depends_on:
+      - wordpress
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-wordpress}
+      WP_URL: ${WP_URL:-http://localhost:8080}
+      WP_ADMIN_USER: ${WP_ADMIN_USER:-asad}
+      WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD:-change-me-now}
+      WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL:-admin@example.com}
+    volumes:
+      - wp_data:/var/www/html
+      - ./wp-content/themes/aurora:/var/www/html/wp-content/themes/aurora
+      - ./wp-content/plugins/aurora-core:/var/www/html/wp-content/plugins/aurora-core
+      - ./setup:/setup:ro
+    entrypoint: ["sh", "/setup/install.sh"]
+
+volumes:
+  db_data:
+  wp_data:

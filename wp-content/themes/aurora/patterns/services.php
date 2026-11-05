@@ -6,7 +6,7 @@
  * Description: Six service cards with icons.
  */
 $aurora_services = array(
-	array( 'layout', 'Custom WordPress themes', 'Pixel-perfect, hand-coded block themes and classic themes built for speed, accessibility and easy editing.' ),
+	array( 'layout', 'Custom website development', 'Pixel-perfect, hand-coded websites built for speed, accessibility and effortless editing by your team.' ),
 	array( 'blocks', 'Elementor & Bricks builds', 'Design-system driven page builder sites with global styles, reusable templates and clean, lean output.' ),
 	array( 'cart', 'WooCommerce stores', 'Online shops, subscriptions, bookings and memberships with smooth checkouts that actually convert.' ),
 	array( 'sparkles', 'AI-powered features', 'On-site assistants, smart search, AI content workflows and automations that save your team hours every week.' ),

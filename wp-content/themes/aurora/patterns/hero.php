@@ -9,15 +9,15 @@
 <!-- wp:group {"tagName":"section","align":"full","className":"ak-aurora ak-hero","layout":{"type":"constrained"}} -->
 <section class="wp-block-group alignfull ak-aurora ak-hero"><!-- wp:group {"align":"wide","className":"ak-reveal","layout":{"type":"constrained","contentSize":"980px"}} -->
 <div class="wp-block-group alignwide ak-reveal"><!-- wp:paragraph {"align":"center","className":"ak-eyebrow"} -->
-<p class="has-text-align-center ak-eyebrow">Available for new projects · 10 years of WordPress</p>
+<p class="has-text-align-center ak-eyebrow">Available for new projects · 10 years of experience</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"textAlign":"center","level":1,"className":"ak-display"} -->
-<h1 class="wp-block-heading has-text-align-center ak-display">WordPress websites, <em>crafted</em> with intelligence.</h1>
+<h1 class="wp-block-heading has-text-align-center ak-display">Web experiences, <em>crafted</em> with intelligence.</h1>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center","className":"ak-lead"} -->
-<p class="has-text-align-center ak-lead">I'm Asad Khan, a WordPress developer who designs, builds and scales fast, beautiful websites for brands, startups and agencies. Now with AI-assisted workflows that ship sooner without cutting corners.</p>
+<p class="has-text-align-center ak-lead">I'm Asad Khan, a web developer and designer who creates fast, beautiful websites and web platforms for brands, startups and agencies. Now with AI-assisted workflows that ship sooner without cutting corners.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->

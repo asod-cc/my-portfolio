@@ -10,7 +10,7 @@ $aurora_faq = array(
 	array( 'How long does a website take?', 'A brochure website usually takes 2 to 4 weeks. Larger business sites take 4 to 6 weeks and WooCommerce or custom builds 6 to 10 weeks. You get a timeline with milestones before we start.' ),
 	array( 'Will I be able to edit the website myself?', 'Yes. Every site is built so you can change text, images and pages visually without touching code. You also get recorded training videos for your site.' ),
 	array( 'What do your AI features actually do?', 'Practical things: a site assistant that answers common customer questions, smart search that understands intent, AI-assisted content and product descriptions, and automated quality checks. You stay in control of everything that is published.' ),
-	array( 'Do you work with agencies (white label)?', 'Absolutely. I have partnered with agencies for years: design-to-WordPress builds, overflow development and maintenance under your brand, with NDAs available.' ),
+	array( 'Do you work with agencies (white label)?', 'Absolutely. I have partnered with agencies for years: design-to-development builds, overflow development and maintenance under your brand, with NDAs available.' ),
 	array( 'What happens after launch?', 'You get free support for a set period, then optional care plans covering updates, backups, security monitoring, speed checks and a monthly bank of edit time.' ),
 );
 ?>

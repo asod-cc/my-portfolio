@@ -121,7 +121,7 @@
 			{ k: ['speed', 'slow', 'performance', 'vitals', 'seo', 'pagespeed'], a: 'Performance is built in: lean themes, image optimisation, caching and CDN. Targets are 90+ PageSpeed and green Core Web Vitals.' },
 			{ k: ['maintenance', 'care', 'support', 'update', 'security', 'hack', 'backup'], a: 'Care plans cover updates, daily backups, uptime monitoring, security hardening and small edits every month.' },
 			{ k: ['work', 'portfolio', 'example', 'project', 'case'], a: `Have a look at selected projects here: <a href="${work}">View the work →</a>` },
-			{ k: ['experience', 'years', 'who', 'about', 'asad'], a: 'Asad has 10 years of hands-on WordPress experience across every kind of site: corporate, e-commerce, membership, LMS, directories and more.' },
+			{ k: ['experience', 'years', 'who', 'about', 'asad'], a: 'Asad has 10 years of hands-on web development experience across every kind of site: corporate, e-commerce, membership, LMS, directories and more.' },
 			{ k: ['hello', 'hi', 'hey', 'salam'], a: 'Hi! Ask me about pricing, timelines, page builders, WooCommerce or AI features.' },
 			{ k: ['contact', 'email', 'call', 'hire', 'start', 'book'], a: `Great, let's talk. <a href="${contact}">Open the contact form →</a>` },
 		];

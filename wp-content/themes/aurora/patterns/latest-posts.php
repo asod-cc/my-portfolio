@@ -14,7 +14,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Notes on WordPress, <em>design &amp; AI.</em></h2>
+<h2 class="wp-block-heading">Notes on the web, <em>design &amp; AI.</em></h2>
 <!-- /wp:heading --></div>
 <!-- /wp:column -->
 
