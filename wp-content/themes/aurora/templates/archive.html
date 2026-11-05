@@ -1,0 +1,53 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","className":"ak-header"} /-->
+
+<!-- wp:group {"tagName":"main","align":"full","layout":{"type":"constrained"}} -->
+<main class="wp-block-group alignfull"><!-- wp:group {"tagName":"section","align":"full","className":"ak-aurora ak-page-hero","layout":{"type":"constrained","contentSize":"900px"}} -->
+<section class="wp-block-group alignfull ak-aurora ak-page-hero"><!-- wp:paragraph {"align":"center","className":"ak-eyebrow"} -->
+<p class="has-text-align-center ak-eyebrow">Archive</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:query-title {"type":"archive","textAlign":"center","showPrefix":false} /-->
+
+<!-- wp:paragraph {"align":"center","className":"ak-lead"} -->
+<p class="has-text-align-center ak-lead">Browse posts in this archive.</p>
+<!-- /wp:paragraph --></section>
+<!-- /wp:group -->
+
+<!-- wp:group {"tagName":"section","align":"full","className":"ak-section-tight","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull ak-section-tight"><!-- wp:query {"queryId":44,"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"align":"wide","className":"ak-projects"} -->
+<div class="wp-block-query alignwide ak-projects"><!-- wp:post-template {"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"300px"}} -->
+<!-- wp:group {"className":"ak-card ak-post-card","layout":{"type":"default"}} -->
+<div class="wp-block-group ak-card ak-post-card"><!-- wp:post-featured-image {"isLink":true,"sizeSlug":"large"} /-->
+
+<!-- wp:post-date /-->
+
+<!-- wp:post-title {"level":3,"isLink":true} /-->
+
+<!-- wp:post-excerpt {"excerptLength":20} /--></div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+
+<!-- wp:spacer {"height":"40px"} -->
+<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"}} -->
+<!-- wp:query-pagination-previous /-->
+
+<!-- wp:query-pagination-numbers /-->
+
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination -->
+
+<!-- wp:query-no-results -->
+<!-- wp:paragraph {"align":"center","className":"ak-muted"} -->
+<p class="has-text-align-center ak-muted">Nothing here yet.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results --></div>
+<!-- /wp:query --></section>
+<!-- /wp:group -->
+
+<!-- wp:pattern {"slug":"aurora/cta"} /--></main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

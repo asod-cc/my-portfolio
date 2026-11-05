@@ -9,6 +9,8 @@ defined( 'ABSPATH' ) || exit;
 
 define( 'AURORA_VERSION', '1.0.0' );
 
+require_once get_theme_file_path( 'inc/icons.php' );
+
 /**
  * Theme setup: editor styles and supports.
  */
