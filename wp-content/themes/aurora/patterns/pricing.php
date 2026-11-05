@@ -27,8 +27,8 @@ $aurora_plans = array(
 <!-- /wp:group -->
 
 <!-- wp:group {"align":"wide","className":"ak-grid ak-stagger","layout":{"type":"default"}} -->
-<div class="wp-block-group alignwide ak-grid ak-stagger"><?php foreach ( $aurora_plans as $aurora_p ) : ?><!-- wp:group {"className":"ak-card ak-price<?php echo $aurora_p[5] ? ' is-featured' : ''; ?>","layout":{"type":"default"}} -->
-<div class="wp-block-group ak-card ak-price<?php echo $aurora_p[5] ? ' is-featured' : ''; ?>"><?php if ( $aurora_p[5] ) : ?><!-- wp:paragraph {"className":"ak-badge"} -->
+<div class="wp-block-group alignwide ak-grid ak-stagger"><?php foreach ( $aurora_plans as $aurora_p ) : ?><!-- wp:group {"className":"ak-card ak-price<?php echo $aurora_p[4] ? ' is-featured' : ''; ?>","layout":{"type":"default"}} -->
+<div class="wp-block-group ak-card ak-price<?php echo $aurora_p[4] ? ' is-featured' : ''; ?>"><?php if ( $aurora_p[4] ) : ?><!-- wp:paragraph {"className":"ak-badge"} -->
 <p class="ak-badge">Most popular</p>
 <!-- /wp:paragraph -->
 
@@ -51,8 +51,8 @@ $aurora_plans = array(
 <!-- /wp:list -->
 
 <!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"className":"<?php echo $aurora_p[5] ? 'is-style-glow' : 'is-style-ghost'; ?>"} -->
-<div class="wp-block-button <?php echo $aurora_p[5] ? 'is-style-glow' : 'is-style-ghost'; ?>"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Get a quote</a></div>
+<div class="wp-block-buttons"><!-- wp:button {"className":"<?php echo $aurora_p[4] ? 'is-style-glow' : 'is-style-ghost'; ?>"} -->
+<div class="wp-block-button <?php echo $aurora_p[4] ? 'is-style-glow' : 'is-style-ghost'; ?>"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Get a quote</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --><?php endforeach; ?></div>

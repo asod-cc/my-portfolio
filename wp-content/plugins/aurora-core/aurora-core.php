@@ -55,7 +55,7 @@ function aurora_core_register_types() {
 			'hierarchical'      => true,
 			'show_in_rest'      => true,
 			'show_admin_column' => true,
-			'rewrite'           => array( 'slug' => 'work/type', 'with_front' => false ),
+			'rewrite'           => array( 'slug' => 'work-type', 'with_front' => false ),
 		)
 	);
 

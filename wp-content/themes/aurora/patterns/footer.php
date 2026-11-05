@@ -104,7 +104,7 @@
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 
-<!-- wp:paragraph {"className":"ak-footer-big","align":"wide"} -->
+<!-- wp:paragraph {"className":"ak-footer-big"} -->
 <p class="ak-footer-big">Asad Khan</p>
 <!-- /wp:paragraph -->
 

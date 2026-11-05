@@ -53,7 +53,7 @@ h1 em, h2 em {
 }
 h1 em, h2 em, h3 em { font-style: italic; padding-right: .06em; }
 .ak-eyebrow {
-	display: inline-flex;
+	display: flex;
 	align-items: center;
 	gap: .55rem;
 	width: fit-content;
@@ -75,7 +75,7 @@ h1 em, h2 em, h3 em { font-style: italic; padding-right: .06em; }
 	box-shadow: 0 0 0 4px color-mix(in srgb, var(--ak-cyan) 20%, transparent);
 	animation: ak-pulse 2.4s infinite;
 }
-.has-text-align-center.ak-eyebrow { margin-inline: auto; }
+.has-text-align-center.ak-eyebrow { margin-inline: auto !important; }
 .ak-lead { font-size: var(--wp--preset--font-size--large); color: var(--ak-muted); line-height: 1.6; max-width: 46ch; }
 .has-text-align-center.ak-lead { margin-inline: auto; }
 .ak-muted { color: var(--ak-muted); }
@@ -168,6 +168,7 @@ h1 em, h2 em, h3 em { font-style: italic; padding-right: .06em; }
 }
 .ak-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
 .ak-grid-2 { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+.ak-grid.ak-grid-4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 2rem; }
 .ak-grid > *, .ak-grid-2 > * { margin: 0 !important; }
 
 /* Animated gradient border */
@@ -278,14 +279,14 @@ h1 em, h2 em, h3 em { font-style: italic; padding-right: .06em; }
 .ak-prompt-score span b { color: #34d399; font-weight: 500; }
 
 /* ---------- Marquee ---------- */
-.ak-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.ak-marquee { max-width: var(--wp--style--global--wide-size) !important; margin-inline: auto !important; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
 .ak-marquee-track { display: flex; gap: 3.5rem; width: max-content; animation: ak-marquee 38s linear infinite; }
 .ak-marquee-track span { font-family: var(--wp--preset--font-family--display); font-size: clamp(1.4rem, 2.6vw, 2rem); color: var(--ak-muted); white-space: nowrap; opacity: .75; }
 .ak-marquee-track span::before { content: "✦"; font-size: .7em; margin-right: 3.5rem; color: var(--ak-violet); opacity: .7; }
 .ak-marquee:hover .ak-marquee-track { animation-play-state: paused; }
 
 /* ---------- Stats ---------- */
-.ak-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); border: 1px solid var(--ak-border); border-radius: var(--ak-radius); overflow: hidden; background: var(--ak-glass); gap: 0 !important; }
+.ak-stats { max-width: var(--wp--style--global--wide-size) !important; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); border: 1px solid var(--ak-border); border-radius: var(--ak-radius); overflow: hidden; background: var(--ak-glass); gap: 0 !important; }
 .ak-stat { padding: 2rem 1.75rem; border-right: 1px solid var(--ak-border); margin: 0 !important; }
 .ak-stat:last-child { border-right: 0; }
 .ak-stat-num { font-family: var(--wp--preset--font-family--display); font-size: clamp(2.75rem, 5vw, 4rem); line-height: 1; margin: 0 0 .5rem; background: var(--ak-aurora); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -349,7 +350,7 @@ h1 em, h2 em, h3 em { font-style: italic; padding-right: .06em; }
 .ak-author { display: flex; align-items: center; gap: .85rem; margin-top: 1.5rem; }
 .ak-author p { margin: 0; }
 .ak-avatar { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--ak-aurora); color: #fff; font-weight: 600; font-size: .85rem; flex: none; }
-.ak-stars { color: var(--ak-gold); letter-spacing: .2em; font-size: .9rem; margin: 0 0 1rem; }
+.ak-stars, .ak-card .ak-stars { color: var(--ak-gold); letter-spacing: .2em; font-size: .9rem; margin: 0 0 1rem; }
 
 /* ---------- Pricing ---------- */
 .ak-price { display: flex; flex-direction: column; }
@@ -361,9 +362,9 @@ h1 em, h2 em, h3 em { font-style: italic; padding-right: .06em; }
 
 /* ---------- FAQ ---------- */
 .ak-faq .wp-block-details { border-bottom: 1px solid var(--ak-border); padding: 1.35rem 0; margin: 0; }
-.ak-faq .wp-block-details summary { font-size: 1.15rem; font-weight: 500; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+.ak-faq .wp-block-details summary { font-size: 1.15rem; font-weight: 500; cursor: pointer; list-style: none; display: block; position: relative; padding-right: 2.25rem; overflow-wrap: anywhere; }
 .ak-faq .wp-block-details summary::-webkit-details-marker { display: none; }
-.ak-faq .wp-block-details summary::after { content: "+"; font-family: var(--wp--preset--font-family--mono); color: var(--ak-cyan); font-size: 1.3rem; line-height: 1; transition: transform .3s var(--ak-ease); }
+.ak-faq .wp-block-details summary::after { content: "+"; position: absolute; right: .25rem; top: .1rem; font-family: var(--wp--preset--font-family--mono); color: var(--ak-cyan); font-size: 1.3rem; line-height: 1; transition: transform .3s var(--ak-ease); }
 .ak-faq .wp-block-details[open] summary::after { transform: rotate(45deg); }
 .ak-faq .wp-block-details p { color: var(--ak-muted); margin-top: .9rem; max-width: 70ch; }
 
@@ -430,7 +431,7 @@ h1 em, h2 em, h3 em { font-style: italic; padding-right: .06em; }
 .ak-footer a:hover { color: var(--ak-text); }
 .ak-footer h6 { color: var(--ak-text); margin-bottom: 1rem; }
 .ak-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .6rem; }
-.ak-footer-big { font-family: var(--wp--preset--font-family--display); font-size: clamp(4rem, 15vw, 13rem) !important; line-height: .85 !important; letter-spacing: -.03em; margin: 3rem 0 1rem !important; background: linear-gradient(180deg, color-mix(in srgb, var(--ak-text) 18%, transparent), transparent 85%); -webkit-background-clip: text; background-clip: text; color: transparent; text-align: center; white-space: nowrap; user-select: none; }
+.ak-footer-big { font-family: var(--wp--preset--font-family--display); font-size: clamp(4rem, 15vw, 13rem) !important; line-height: .85 !important; letter-spacing: -.03em; margin: 3rem 0 1rem !important; background: linear-gradient(180deg, color-mix(in srgb, var(--ak-text) 18%, transparent), transparent 85%); -webkit-background-clip: text; background-clip: text; color: transparent; text-align: center; white-space: nowrap; user-select: none; max-width: none !important; width: 100%; overflow: hidden; }
 .ak-footer-bottom { border-top: 1px solid var(--ak-line); padding-top: 1.5rem; font-size: .85rem; color: var(--ak-muted); }
 .ak-footer-bottom p { margin: 0; }
 

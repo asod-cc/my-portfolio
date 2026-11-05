@@ -31,8 +31,8 @@ $aurora_steps = array(
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 
-<!-- wp:group {"align":"wide","className":"ak-grid ak-stagger","layout":{"type":"default"}} -->
-<div class="wp-block-group alignwide ak-grid ak-stagger"><?php foreach ( $aurora_steps as $aurora_s ) : ?><!-- wp:group {"className":"ak-step","layout":{"type":"default"}} -->
+<!-- wp:group {"align":"wide","className":"ak-grid ak-grid-4 ak-stagger","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide ak-grid ak-grid-4 ak-stagger"><?php foreach ( $aurora_steps as $aurora_s ) : ?><!-- wp:group {"className":"ak-step","layout":{"type":"default"}} -->
 <div class="wp-block-group ak-step"><!-- wp:paragraph {"className":"ak-step-num"} -->
 <p class="ak-step-num"><?php echo esc_html( $aurora_s[0] ); ?></p>
 <!-- /wp:paragraph -->
